@@ -1,34 +1,29 @@
 <template>
-  <span id="app">    
-    <Content/>
-  </span>
+  <v-app id="inspire">
+    <Menu />
+    <Content />
+  </v-app>
 </template>
 
 <script>
-import Content from './components/Content.vue'
+import Content from "./components/Content.vue";
+import Menu from "./components/Menu.vue";
 
 export default {
-  name: 'app',
+  name: "App",
+  props: {
+    source: String
+  },
   components: {
-    Content
-  }
-}
+    Content,
+    Menu
+  },
+  data: () => ({})
+};
 </script>
 
 <style>
-*{
-  overflow-x:auto;
-}
-body {
-  padding: 0%;
-  margin: 0%;
-  font-family: 'Muli', sans-serif;
-  font-size:20px;
-  line-height: 1.5;
-  word-wrap: break-word;
-}
-.readme{
-  font-weight: bold;
-  color: #222;
+* {
+  overflow-x: auto;
 }
 </style>
