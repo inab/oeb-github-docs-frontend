@@ -1,8 +1,9 @@
 
 <template>
   <span>
-    <v-content>
-      <v-container class="fill-height" fluid>
+    <v-content color="white">
+      <slContent v-show="content==null" class="fill-height" />
+      <v-container v-show="content!=null" class="fill-height" fluid>
         <span v-html="content"></span>
       </v-container>
     </v-content>
@@ -12,7 +13,11 @@
 
 
 <script>
+import slContent from "@/skeleton-loaders/slContent.vue";
 export default {
+  components: {
+    slContent
+  },
   name: "Content",
   data() {
     return {
@@ -26,6 +31,7 @@ export default {
   },
   watch: {
     clickedUrl(newValue) {
+      this.content = null;
       this.getContent(newValue);
     }
   },
@@ -36,6 +42,7 @@ export default {
           "Content-type": "text/html;charset=UTF-8"
         }
       };
+
       const content = await this.$http.get(this.$baseUrl + clickedUrl, config);
       return (this.content = content.data);
     }

@@ -26,4 +26,11 @@ export default {
 * {
   overflow-x: auto;
 }
+
+#nprogress .bar {
+  background: lightblue !important;
+}
+#nprogress .peg {
+  display: none !important;
+}
 </style>
