@@ -1,6 +1,7 @@
 <template>
   <span>
     <v-navigation-drawer v-model="drawer" app>
+      <v-subheader>REPOSITORIES</v-subheader>
       <v-list dense v-for="m in menu" :key="m.index">
         <v-list-item @click="setUrlForContent(m)">
           <v-list-item-content>
