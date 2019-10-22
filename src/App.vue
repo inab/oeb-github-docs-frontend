@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <v-app>
     <Menu />
     <Content />
   </v-app>
@@ -11,9 +11,6 @@ import Menu from "./components/Menu.vue";
 
 export default {
   name: "App",
-  props: {
-    source: String
-  },
   components: {
     Content,
     Menu
@@ -28,7 +25,7 @@ export default {
 }
 
 #nprogress .bar {
-  background: lightblue !important;
+  background: red !important;
 }
 #nprogress .peg {
   display: none !important;

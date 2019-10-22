@@ -11,7 +11,7 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app color="indigo" dark>
+    <v-app-bar app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>OpenEBench Documentation</v-toolbar-title>
     </v-app-bar>
@@ -37,7 +37,7 @@ export default {
           Accept: "application/json"
         }
       };
-      const menu = await this.$http.get(this.$baseUrl, config);
+      const menu = await this.$http.get(this.$baseUrl + this.$repolist, config);
       this.menu = menu.data;
     },
     setUrlForContent(m) {

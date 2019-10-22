@@ -1,10 +1,10 @@
 
 <template>
   <span>
-    <v-content color="white">
-      <slContent v-show="content==null" class="fill-height" />
-      <v-container v-show="content!=null" class="fill-height" fluid>
-        <span v-html="content"></span>
+    <v-content>
+      <slContent v-show="content==null" fluid />
+      <v-container v-show="content!=null" fluid>
+        <v-sheet v-html="content" fluid></v-sheet>
       </v-container>
     </v-content>
   </span>
@@ -43,7 +43,10 @@ export default {
         }
       };
 
-      const content = await this.$http.get(this.$baseUrl + clickedUrl, config);
+      const content = await this.$http.get(
+        this.$baseUrl + this.$gh + clickedUrl,
+        config
+      );
       return (this.content = content.data);
     }
   }

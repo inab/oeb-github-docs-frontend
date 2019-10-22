@@ -1,21 +1,17 @@
 <template>
-  <v-skeleton-loader
-    background-color="blue"
-    ref="skeleton"
-    :boilerplate="boilerplate"
-    :type="type"
-    :tile="tile"
-    class="mx-auto"
-  ></v-skeleton-loader>
+  <v-sheet>
+    <v-skeleton-loader
+      ref="skeleton"
+      :boilerplate="boilerplate"
+      :type="type"
+      :tile="tile"
+      class="mx-auto"
+    ></v-skeleton-loader>
+  </v-sheet>
 </template>
 
 <script>
 export default {
-  // Vuetify components provide
-  // a theme variable that is
-  // used to determine dark
-  inject: ["theme"],
-
   data: () => ({
     boilerplate: false,
     tile: false,
