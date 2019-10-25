@@ -1,20 +1,16 @@
 <template>
-  <v-app>
-    <Menu />
-    <Content />
-  </v-app>
+  <span>
+    <router-link to="/oeb">OpenEBench documentation</router-link>
+    <router-link to="/wg">Widget gallery</router-link>
+
+    <router-view></router-view>
+  </span>
 </template>
 
-<script>
-import Content from "./components/Content.vue";
-import Menu from "./components/Menu.vue";
 
+<script>
 export default {
   name: "App",
-  components: {
-    Content,
-    Menu
-  },
   data: () => ({})
 };
 </script>
