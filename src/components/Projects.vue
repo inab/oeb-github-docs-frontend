@@ -17,7 +17,6 @@ export default {
   },
   methods: {}
 };
-// console.log($route.params.id);
 </script>
 
 <style lang="scss" scoped>

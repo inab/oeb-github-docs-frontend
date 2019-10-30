@@ -4,8 +4,25 @@ import projects from '@/components/Projects';
 
 Vue.use(VueRouter);
 
-const routes = [{ path: '/:id', component: projects }];
+const routes = [
+	{
+		name: 'base',
+		path: '/',
+		component: projects
+	},
+	{
+		name: 'project',
+		path: '/:id/',
+		component: projects
+	},
+	{
+		name: 'projectAndRepo',
+		path: '/:id/:repository/',
+		component: projects
+	}
+];
 
 export default new VueRouter({
+	mode: 'history',
 	routes: routes
 });

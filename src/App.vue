@@ -1,10 +1,7 @@
 <template>
-  <span>
-    <router-link to="/oeb">OpenEBench documentation</router-link>
-    <router-link to="/wg">Widget gallery</router-link>
-
+  <div>
     <router-view></router-view>
-  </span>
+  </div>
 </template>
 
 

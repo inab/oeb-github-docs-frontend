@@ -8,6 +8,7 @@
       </v-container>
     </v-content>
   </span>
+  <!-- <div v-html="content" fluid></div> -->
 </template>
 
 
@@ -19,20 +20,24 @@ export default {
     slContent
   },
   name: "Content",
+  created() {
+    this.$route.params.repository
+      ? this.getContent(this.$route.params.repository)
+      : "";
+  },
   data() {
     return {
       content: process.env.VUE_APP_DESC
     };
   },
-  computed: {
-    clickedUrl() {
-      return this.$store.state.url.clickedUrl;
-    }
-  },
   watch: {
-    clickedUrl(newValue) {
-      this.content = null;
-      this.getContent(newValue);
+    $route(to, from) {
+      if (
+        to.params.repository != undefined &&
+        to.params.repository != from.params.repository
+      ) {
+        this.getContent(to.params.repository);
+      }
     }
   },
   methods: {
