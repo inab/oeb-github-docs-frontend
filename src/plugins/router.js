@@ -23,6 +23,7 @@ const routes = [
 ];
 
 export default new VueRouter({
+	base: 'docs',
 	mode: 'history',
 	routes: routes
 });
