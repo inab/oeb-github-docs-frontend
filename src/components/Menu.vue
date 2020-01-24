@@ -26,10 +26,10 @@
       <v-divider></v-divider>
       <span v-if="menu!=''">
         <v-subheader>REPOSITORIES</v-subheader>
-        <v-list dense v-for="m in menu" :key="m.index">
-          <v-list-item @click="setUrlForContent(m)">
+        <v-list dense v-for="(v,k) in menu" v-bind:key="k">
+          <v-list-item @click="setUrlForContent(k)">
             <v-list-item-content>
-              <v-list-item-title>{{m}}</v-list-item-title>
+              <v-list-item-title>{{v}}</v-list-item-title>
             </v-list-item-content>
           </v-list-item>
         </v-list>
