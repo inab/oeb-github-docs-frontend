@@ -10,16 +10,13 @@
       <v-list>
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title>
-              <router-link to="/oeb">
-                <v-btn text isactive medium color="blue">OpenEBench docs</v-btn>
-              </router-link>
-            </v-list-item-title>
-            <v-list-item-title>
-              <router-link to="/wg">
-                <v-btn text medium color="orange">Widget gallery</v-btn>
-              </router-link>
-            </v-list-item-title>
+            <span v-for="(v,k) in projects" v-bind:key="k">
+              <v-list-item-title>
+                <router-link :to="'/'+k">
+                  <v-btn text isactive medium color="blue">{{v}}</v-btn>
+                </router-link>
+              </v-list-item-title>
+            </span>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -43,11 +40,13 @@ export default {
   name: "Menu",
   created() {
     this.$route.params.id ? this.getMenu(this.$route.params.id) : "";
+    this.getProjects();
   },
   data() {
     return {
       menu: "",
-      drawer: null
+      drawer: null,
+      projects: ""
     };
   },
   watch: {
@@ -66,6 +65,18 @@ export default {
       };
       const menu = await this.$http.get(this.$baseUrl + id, config);
       this.menu = menu.data;
+    },
+    async getProjects() {
+      let config = {
+        headers: {
+          Accept: "application/json"
+        }
+      };
+      const projects = await this.$http.get(
+        this.$baseUrl + this.$projects,
+        config
+      );
+      this.projects = projects.data;
     },
     setUrlForContent(m) {
       this.$router
