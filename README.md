@@ -1,5 +1,9 @@
 # docs
 
+This web frontend to the documentation depends on <https://openebench.bsc.es/rest/docs/projects>
+
+The prefix of the service to be used can be changed on [.env.production](.env.production).
+
 ## Project setup
 ```
 npm install
